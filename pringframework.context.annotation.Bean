@@ -1,0 +1,41 @@
+[33mcommit 507ec141ae98abb2fe57309fe6ce6ed711aa1ee4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m)[m
+Author: Pietro-dev <pietro.pietromartins@gmail.com>
+Date:   Mon Mar 17 17:09:12 2025 -0300
+
+    Endpoint GET Usuarios finalizado
+
+[33mcommit a27700a026250e5d808828ebd1b65348062227e9[m
+Author: Pietro-dev <pietro.pietromartins@gmail.com>
+Date:   Sun Mar 16 15:11:22 2025 -0300
+
+    Flyway configurado
+
+[33mcommit 0ff2c12652ccf04ce4413c0690280d38fbfc8212[m
+Author: Pietro-dev <pietro.pietromartins@gmail.com>
+Date:   Sun Mar 16 15:10:54 2025 -0300
+
+    Repositories criados
+
+[33mcommit c9315ae3231e8e51c7eea63ff303328fd3420fc5[m
+Author: Pietro-dev <pietro.pietromartins@gmail.com>
+Date:   Sun Mar 16 15:02:38 2025 -0300
+
+    Entidades JPA criadas
+
+[33mcommit 1f713179e7e1d7ea9ea05130783e67d5b8847d3f[m
+Author: Pietro-dev <pietro.pietromartins@gmail.com>
+Date:   Sun Mar 16 15:02:18 2025 -0300
+
+    Conexão com o banco configurada
+
+[33mcommit 0260aa6ef8247fe0278b30f0ddd7fbdcff368d44[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Pietro-dev <pietro.pietromartins@gmail.com>
+Date:   Sun Mar 16 14:40:53 2025 -0300
+
+    Prconectando ao repositório remoto
+
+[33mcommit c8fd6b5aa5c2358ff9acf16f0479efb5b67affe8[m
+Author: Pietro <102864423+Pietro-dev@users.noreply.github.com>
+Date:   Sun Mar 16 14:37:53 2025 -0300
+
+    Initial commit
