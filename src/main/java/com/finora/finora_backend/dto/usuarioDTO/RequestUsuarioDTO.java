@@ -15,4 +15,5 @@ public record RequestUsuarioDTO(
 
         @NotBlank
         String senha) {
+
 }
