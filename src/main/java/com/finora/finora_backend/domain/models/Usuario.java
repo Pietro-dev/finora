@@ -1,7 +1,6 @@
-package com.finora.finora_backend.models;
+package com.finora.finora_backend.domain.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.finora.finora_backend.dto.usuarioDTO.RequestUsuarioDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,10 +22,4 @@ public class Usuario {
 
     @JsonIgnore
     private String senha;
-
-    public Usuario(RequestUsuarioDTO requestUsuario){
-        this.nome = requestUsuario.nome();
-        this.email = requestUsuario.email();
-        this.senha = requestUsuario.senha();
-    }
 }
