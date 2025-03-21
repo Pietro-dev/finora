@@ -5,12 +5,22 @@ import com.finora.finora_backend.application.dto.usuarioDTO.ResponseUsuarioDTO;
 import com.finora.finora_backend.domain.models.Usuario;
 import com.finora.finora_backend.domain.repository.UsuarioRepository;
 
+import java.util.List;
+
 public class GerenciarUsuarioUseCase {
 
     private final UsuarioRepository usuarioRepository;
 
     public GerenciarUsuarioUseCase(UsuarioRepository usuarioRepository){
         this.usuarioRepository = usuarioRepository;
+    }
+
+    public List<ResponseUsuarioDTO> listarTodos(){
+        List<Usuario> usuarios = usuarioRepository.findAll();
+
+        return usuarios.stream()
+                .map(usuario -> new ResponseUsuarioDTO(usuario.getId(), usuario.getNome(), usuario.getEmail()))
+                .toList();
     }
 
     public ResponseUsuarioDTO registrar(RequestCriarUsuarioDTO requestUsuarioDTO){
