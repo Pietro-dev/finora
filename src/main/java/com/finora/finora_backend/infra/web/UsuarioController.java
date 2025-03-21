@@ -21,6 +21,12 @@ public class UsuarioController {
         this.gerenciarUsuarioUseCase = gerenciarUsuarioUseCase;
     }
 
+    @GetMapping
+    public ResponseEntity<List<ResponseUsuarioDTO>> listarTodos(){
+        List<ResponseUsuarioDTO> usuarios = gerenciarUsuarioUseCase.listarTodos();
+        return ResponseEntity.ok(usuarios);
+    }
+
     @PostMapping
     public ResponseEntity<ResponseUsuarioDTO> registrar(@Valid @RequestBody RequestCriarUsuarioDTO request){
         ResponseUsuarioDTO novoUsuario = gerenciarUsuarioUseCase.registrar(request);
