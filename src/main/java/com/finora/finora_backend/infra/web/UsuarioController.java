@@ -1,12 +1,10 @@
 package com.finora.finora_backend.infra.web;
 
 import com.finora.finora_backend.application.dto.usuarioDTO.RequestCriarUsuarioDTO;
+import com.finora.finora_backend.application.dto.usuarioDTO.RequestDeletarUsuarioDTO;
 import com.finora.finora_backend.application.dto.usuarioDTO.ResponseUsuarioDTO;
-import com.finora.finora_backend.application.usecases.GerenciarUsuarioUseCase;
-import com.finora.finora_backend.domain.models.Usuario;
-import com.finora.finora_backend.domain.repository.UsuarioRepository;
+import com.finora.finora_backend.application.services.UsuarioService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -15,21 +13,28 @@ import java.util.List;
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
-    private final GerenciarUsuarioUseCase gerenciarUsuarioUseCase;
+    private final UsuarioService usuarioService;
 
-    public UsuarioController(GerenciarUsuarioUseCase gerenciarUsuarioUseCase){
-        this.gerenciarUsuarioUseCase = gerenciarUsuarioUseCase;
+    public UsuarioController(UsuarioService usuarioService){
+        this.usuarioService = usuarioService;
     }
 
     @GetMapping
     public ResponseEntity<List<ResponseUsuarioDTO>> listarTodos(){
-        List<ResponseUsuarioDTO> usuarios = gerenciarUsuarioUseCase.listarTodos();
+        List<ResponseUsuarioDTO> usuarios = usuarioService.listarTodos();
         return ResponseEntity.ok(usuarios);
     }
 
     @PostMapping
     public ResponseEntity<ResponseUsuarioDTO> registrar(@Valid @RequestBody RequestCriarUsuarioDTO request){
-        ResponseUsuarioDTO novoUsuario = gerenciarUsuarioUseCase.registrar(request);
+        ResponseUsuarioDTO novoUsuario = usuarioService.registrar(request);
         return ResponseEntity.ok(novoUsuario);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ResponseUsuarioDTO> deletar(@PathVariable Long id){
+        ResponseUsuarioDTO usuarioDeletado = usuarioService.deletar(id);
+
+        return ResponseEntity.ok(usuarioDeletado);
     }
 }
