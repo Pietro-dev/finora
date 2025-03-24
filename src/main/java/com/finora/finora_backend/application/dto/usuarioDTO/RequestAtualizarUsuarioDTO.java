@@ -16,6 +16,5 @@ public record RequestAtualizarUsuarioDTO(
         String email,
 
         @NotBlank
-        String senha
-) {
+        String senha) {
 }
