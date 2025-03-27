@@ -1,7 +1,7 @@
 package com.finora.finora_backend.infra.web;
 
+import com.finora.finora_backend.application.dto.usuarioDTO.RequestAtualizarUsuarioDTO;
 import com.finora.finora_backend.application.dto.usuarioDTO.RequestCriarUsuarioDTO;
-import com.finora.finora_backend.application.dto.usuarioDTO.RequestDeletarUsuarioDTO;
 import com.finora.finora_backend.application.dto.usuarioDTO.ResponseUsuarioDTO;
 import com.finora.finora_backend.application.services.UsuarioService;
 import jakarta.validation.Valid;
@@ -29,6 +29,12 @@ public class UsuarioController {
     public ResponseEntity<ResponseUsuarioDTO> registrar(@Valid @RequestBody RequestCriarUsuarioDTO request){
         ResponseUsuarioDTO novoUsuario = usuarioService.registrar(request);
         return ResponseEntity.ok(novoUsuario);
+    }
+
+    @PutMapping
+    public ResponseEntity<ResponseUsuarioDTO> atualizar(@Valid @RequestBody RequestAtualizarUsuarioDTO request){
+        ResponseUsuarioDTO usuarioAtualizado = usuarioService.atualizar(request);
+        return  ResponseEntity.ok(usuarioAtualizado);
     }
 
     @DeleteMapping("/{id}")
