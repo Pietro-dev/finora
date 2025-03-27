@@ -1,14 +1,12 @@
 package com.finora.finora_backend.application.services;
 
+import com.finora.finora_backend.application.dto.usuarioDTO.RequestAtualizarUsuarioDTO;
 import com.finora.finora_backend.application.dto.usuarioDTO.RequestCriarUsuarioDTO;
-import com.finora.finora_backend.application.dto.usuarioDTO.RequestDeletarUsuarioDTO;
 import com.finora.finora_backend.application.dto.usuarioDTO.ResponseUsuarioDTO;
 import com.finora.finora_backend.domain.models.Usuario;
 import com.finora.finora_backend.domain.repository.UsuarioRepository;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.Optional;
 
 public class UsuarioService {
 
@@ -46,6 +44,21 @@ public class UsuarioService {
     public ResponseUsuarioDTO buscarPorId(Long id){
         Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("ID não corresponde a nenhum usuário cadastrado!"));
+
+        return new ResponseUsuarioDTO(
+                usuario.getId(),
+                usuario.getNome(),
+                usuario.getEmail()
+        );
+    }
+
+    public ResponseUsuarioDTO atualizar(RequestAtualizarUsuarioDTO data){
+        Usuario usuario = usuarioRepository.findById(data.id())
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado!"));
+
+        usuario.setNome(data.nome());
+        usuario.setEmail(data.email());
+        usuario.setSenha(data.senha());
 
         return new ResponseUsuarioDTO(
                 usuario.getId(),
